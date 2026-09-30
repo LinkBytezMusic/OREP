@@ -1,0 +1,908 @@
+/* =========================================================
+   ARTIST EDITOR
+========================================================= */
+
+.artist-editor {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background: #f4f5f1;
+  color: #20251f;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   MAIN AREA
+========================================================= */
+
+.editor-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.editor-header {
+  height: 76px;
+  padding: 0 24px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e5e8e1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.editor-header-left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.editor-overline {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  color: #7b8478;
+}
+
+.editor-header h1 {
+  margin: 0;
+
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  color: #20251f;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.editor-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* =========================================================
+   DEVICE SWITCHER
+========================================================= */
+
+.device-switcher {
+  display: flex;
+  align-items: center;
+
+  background: #f3f5f1;
+  border: 1px solid #e1e5dd;
+
+  border-radius: 9px;
+  padding: 3px;
+}
+
+.device-btn {
+  width: 36px;
+  height: 32px;
+
+  border: 0;
+  background: transparent;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  color: #687267;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.device-btn:hover {
+  background: #ffffff;
+  color: #293c2b;
+}
+
+.device-btn.active {
+  background: #ffffff;
+  color: #293c2b;
+
+  box-shadow: 0 2px 6px rgba(20, 30, 20, 0.08);
+}
+
+
+/* =========================================================
+   HEADER BUTTONS
+========================================================= */
+
+.view-page-btn,
+.save-btn {
+  height: 38px;
+
+  padding: 0 15px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.view-page-btn {
+  border: 1px solid #dfe4db;
+  background: #ffffff;
+  color: #394238;
+}
+
+.view-page-btn:hover {
+  background: #f7f8f5;
+}
+
+.save-btn {
+  border: 0;
+
+  background: #293c2b;
+  color: #ffffff;
+
+  box-shadow: 0 4px 12px rgba(41, 60, 43, 0.15);
+}
+
+.save-btn:hover {
+  background: #203122;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   EDITOR CONTENT
+========================================================= */
+
+.editor-content {
+  flex: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(340px, 420px)
+    minmax(500px, 1fr);
+
+  min-height: calc(100vh - 76px);
+}
+
+
+/* =========================================================
+   EDITING PANEL
+========================================================= */
+
+.editing-panel {
+  min-width: 0;
+
+  background: #f7f8f5;
+
+  border-right: 1px solid #e2e6de;
+
+  overflow-y: auto;
+}
+
+.editor-form {
+  padding: 25px;
+}
+
+
+/* =========================================================
+   FORM SECTIONS
+========================================================= */
+
+.form-section {
+  padding: 0 0 24px;
+  margin-bottom: 24px;
+
+  border-bottom: 1px solid #e1e5dd;
+}
+
+.form-section:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.form-section-heading {
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-section-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-section-heading span {
+  min-width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e6ebe2;
+  color: #536050;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.form-section-heading h2 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  color: #252b24;
+}
+
+
+/* =========================================================
+   LABELS
+========================================================= */
+
+.editor-form label {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #424a40;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.editor-form label:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.editor-form input,
+.editor-form textarea {
+  width: 100%;
+
+  margin-top: 7px;
+  padding: 11px 12px;
+
+  border: 1px solid #dfe4da;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #252a24;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.editor-form input {
+  height: 41px;
+}
+
+.editor-form textarea {
+  min-height: 95px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.editor-form input:hover,
+.editor-form textarea:hover {
+  border-color: #c8d0c3;
+}
+
+.editor-form input:focus,
+.editor-form textarea:focus {
+  border-color: #6c8068;
+
+  box-shadow:
+    0 0 0 3px rgba(108, 128, 104, 0.1);
+}
+
+
+/* =========================================================
+   IMAGE UPLOAD
+========================================================= */
+
+.image-upload-section {
+  padding-bottom: 0;
+}
+
+.image-placeholder {
+  min-height: 190px;
+
+  border: 1.5px dashed #cbd3c6;
+  border-radius: 13px;
+
+  background: #fbfcfa;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 22px;
+}
+
+.image-placeholder > span {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #edf1ea;
+
+  font-size: 25px;
+
+  margin-bottom: 11px;
+}
+
+.image-placeholder strong {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.image-placeholder small {
+  max-width: 220px;
+
+  font-size: 10px;
+  line-height: 1.5;
+
+  color: #8a9186;
+
+  margin-bottom: 14px;
+}
+
+.image-placeholder button {
+  border: 1px solid #cbd3c6;
+
+  background: #ffffff;
+
+  color: #394438;
+
+  border-radius: 8px;
+
+  padding: 8px 13px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.image-placeholder button:hover {
+  background: #f3f6f1;
+}
+
+
+/* =========================================================
+   EDITOR LIST HEADER
+========================================================= */
+
+.editor-list-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.editor-list-header h2 {
+  margin: 3px 0 6px;
+
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.editor-list-header p {
+  margin: 0;
+
+  color: #7a8276;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  max-width: 280px;
+}
+
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+.add-btn {
+  flex-shrink: 0;
+
+  border: 0;
+
+  background: #293c2b;
+  color: #ffffff;
+
+  border-radius: 8px;
+
+  padding: 10px 14px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.add-btn:hover {
+  background: #203122;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PRODUCT EDITOR LIST
+========================================================= */
+
+.product-editor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-editor-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    70px
+    minmax(0, 1fr)
+    32px;
+
+  gap: 13px;
+
+  padding: 13px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5dd;
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(30, 40, 30, 0.025);
+}
+
+.product-editor-image {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #eef2eb;
+
+  font-size: 27px;
+}
+
+.product-editor-fields {
+  min-width: 0;
+}
+
+.product-editor-fields label {
+  margin-bottom: 9px;
+}
+
+.product-editor-fields input,
+.product-editor-fields textarea {
+  margin-top: 5px;
+}
+
+.product-editor-fields textarea {
+  min-height: 60px;
+}
+
+.delete-btn {
+  width: 31px;
+  height: 31px;
+
+  border: 1px solid #ece2df;
+
+  background: #fffafa;
+
+  color: #9b6258;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #f9ece9;
+  color: #8a4035;
+}
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+.preview-container {
+  min-width: 0;
+
+  padding: 20px;
+
+  background: #e9ebe6;
+
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+}
+
+.preview-container.mobile {
+  align-items: center;
+}
+
+
+/* =========================================================
+   PREVIEW LABEL
+========================================================= */
+
+.preview-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-bottom: 10px;
+
+  color: #6d7569;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.live-indicator {
+  color: #61715e;
+
+  letter-spacing: 0;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PREVIEW WRAPPER
+========================================================= */
+
+.preview-wrapper {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+.preview-container.mobile .preview-wrapper {
+  max-width: 390px;
+}
+
+
+/* =========================================================
+   PREVIEW BROWSER
+========================================================= */
+
+.preview-browser {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #d9ddd5;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 45px rgba(30, 40, 30, 0.08);
+}
+
+.preview-container.mobile .preview-browser {
+  border-radius: 20px;
+}
+
+
+/* =========================================================
+   ARTIST PAGE PREVIEW
+========================================================= */
+
+.artist-page {
+  width: 100%;
+  min-height: 700px;
+}
+
+
+/* =========================================================
+   PREVIEW SCROLLBAR
+========================================================= */
+
+.editing-panel::-webkit-scrollbar,
+.preview-container::-webkit-scrollbar {
+  width: 7px;
+}
+
+.editing-panel::-webkit-scrollbar-track,
+.preview-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.editing-panel::-webkit-scrollbar-thumb,
+.preview-container::-webkit-scrollbar-thumb {
+  background: #ccd2c9;
+  border-radius: 10px;
+}
+
+.editing-panel::-webkit-scrollbar-thumb:hover,
+.preview-container::-webkit-scrollbar-thumb:hover {
+  background: #b9c1b5;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .editor-content {
+    grid-template-columns:
+      minmax(320px, 390px)
+      minmax(400px, 1fr);
+  }
+
+  .editor-header {
+    padding: 0 18px;
+  }
+
+  .editor-form {
+    padding: 20px;
+  }
+
+  .preview-container {
+    padding: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .editor-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editing-panel {
+    border-right: 0;
+    border-bottom: 1px solid #e2e6de;
+  }
+
+  .preview-container {
+    min-height: 650px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .artist-editor {
+    display: block;
+  }
+
+  .editor-header {
+    height: auto;
+    min-height: 68px;
+
+    padding: 11px 13px;
+
+    gap: 10px;
+  }
+
+  .editor-header h1 {
+    font-size: 17px;
+  }
+
+  .editor-overline {
+    font-size: 8px;
+  }
+
+  .editor-header-actions {
+    gap: 5px;
+  }
+
+  .view-page-btn {
+    display: none;
+  }
+
+  .device-switcher {
+    display: none;
+  }
+
+  .save-btn {
+    height: 36px;
+
+    padding: 0 11px;
+
+    font-size: 11px;
+  }
+
+  .editor-form {
+    padding: 18px 14px;
+  }
+
+  .form-section {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-section-heading h2 {
+    font-size: 15px;
+  }
+
+  .editor-list-header {
+    flex-direction: column;
+  }
+
+  .editor-list-header h2 {
+    font-size: 20px;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+
+  .product-editor-card {
+    grid-template-columns:
+      58px
+      minmax(0, 1fr)
+      30px;
+
+    padding: 11px;
+
+    gap: 9px;
+  }
+
+  .product-editor-image {
+    width: 58px;
+    height: 58px;
+
+    font-size: 23px;
+  }
+
+  .preview-container {
+    padding: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .editor-header-left {
+    min-width: 0;
+  }
+
+  .editor-header h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .product-editor-card {
+    grid-template-columns: 1fr;
+  }
+
+  .product-editor-image {
+    width: 100%;
+    height: 90px;
+  }
+
+  .delete-btn {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+  }
+
+  .back-to-page-btn {
+    right: 12px;
+    bottom: 12px;
+  }
+
+}

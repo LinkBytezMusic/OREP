@@ -25,16 +25,29 @@ a {
   color: inherit;
 }
 
-button {
+button,
+input {
   font: inherit;
+}
+
+button {
   cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(79, 114, 87, 0.25);
+  outline-offset: 3px;
 }
 
 .app {
   overflow: hidden;
 }
 
-/* NAVBAR */
+/* =========================================================
+   NAVBAR
+   ========================================================= */
 
 .navbar {
   height: 82px;
@@ -44,6 +57,10 @@ button {
   justify-content: space-between;
   background: rgba(247, 244, 236, 0.96);
   border-bottom: 1px solid #e5e0d4;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
 }
 
 .brand {
@@ -73,15 +90,25 @@ button {
   color: #6d806f;
 }
 
-nav {
+.main-nav {
   display: flex;
   gap: 35px;
   color: #536457;
   font-size: 14px;
 }
 
-nav a:hover {
+.main-nav a {
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
   color: #476c50;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .account-btn {
@@ -92,7 +119,33 @@ nav a:hover {
   color: #405743;
 }
 
-/* HERO */
+.edit-page-btn {
+  border: 1px solid #bdc9bd;
+  background: #fffdf8;
+  color: #405743;
+  border-radius: 30px;
+  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.edit-page-btn:hover {
+  background: #4f7257;
+  color: white;
+  border-color: #4f7257;
+  transform: translateY(-1px);
+}
+
+.edit-icon {
+  font-size: 16px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero-section {
   min-height: 680px;
@@ -148,11 +201,18 @@ nav a:hover {
 .light-btn,
 .subscribe-btn,
 .preview-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 30px;
   padding: 14px 25px;
   font-weight: 600;
   border: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .primary-btn {
@@ -160,9 +220,21 @@ nav a:hover {
   color: white;
 }
 
+.primary-btn:hover {
+  background: #3f6047;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(63, 96, 71, 0.18);
+}
+
 .secondary-btn {
   border: 1px solid #bdc9bd;
   color: #4f6754;
+  background: transparent;
+}
+
+.secondary-btn:hover {
+  background: #edf1e9;
+  transform: translateY(-2px);
 }
 
 .hero-art {
@@ -220,7 +292,9 @@ nav a:hover {
   right: 5%;
 }
 
-/* PROMO */
+/* =========================================================
+   PROMO
+   ========================================================= */
 
 .promo-section {
   margin: 0 6%;
@@ -249,6 +323,7 @@ nav a:hover {
 
 .promo-section p {
   opacity: 0.85;
+  line-height: 1.6;
 }
 
 .light-btn {
@@ -257,7 +332,14 @@ nav a:hover {
   white-space: nowrap;
 }
 
-/* GENERAL SECTION */
+.light-btn:hover {
+  background: white;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   GENERAL SECTION
+   ========================================================= */
 
 .section {
   padding: 110px 8%;
@@ -282,7 +364,13 @@ nav a:hover {
   font-weight: 600;
 }
 
-/* PRODUCTS */
+.section-heading > a:hover {
+  color: #304b36;
+}
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
 
 .product-grid {
   display: grid;
@@ -295,11 +383,14 @@ nav a:hover {
   border: 1px solid #e8e3d7;
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.2s;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(50, 65, 50, 0.09);
 }
 
 .product-image {
@@ -337,9 +428,17 @@ nav a:hover {
 
 .product-info strong {
   font-size: 18px;
+  display: block;
+  margin-bottom: 18px;
 }
 
-/* WORKSHOP */
+.product-info .primary-btn {
+  width: 100%;
+}
+
+/* =========================================================
+   WORKSHOP
+   ========================================================= */
 
 .workshop-section {
   padding: 100px 8%;
@@ -377,6 +476,7 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   font-size: 130px;
+  overflow: hidden;
 }
 
 .workshop-label {
@@ -384,7 +484,7 @@ nav a:hover {
   bottom: 25px;
   left: 25px;
   right: 25px;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255, 255, 255, 0.92);
   padding: 18px;
   border-radius: 15px;
 }
@@ -399,7 +499,9 @@ nav a:hover {
   margin-top: 4px;
 }
 
-/* SUBSCRIPTION */
+/* =========================================================
+   SUBSCRIPTION
+   ========================================================= */
 
 .subscription-section {
   padding: 120px 8%;
@@ -465,6 +567,7 @@ nav a:hover {
 
 .subscription-preview p {
   opacity: 0.8;
+  line-height: 1.6;
 }
 
 .preview-btn {
@@ -472,6 +575,11 @@ nav a:hover {
   background: white;
   color: #38523e;
   margin-top: 15px;
+}
+
+.preview-btn:hover {
+  background: #f0eee5;
+  transform: translateY(-2px);
 }
 
 .subscription-details {
@@ -520,38 +628,303 @@ nav a:hover {
   color: white;
 }
 
-/* FOOTER */
+.subscribe-btn:hover {
+  background: #3f6047;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
   padding: 50px 8%;
   border-top: 1px solid #ded9ce;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   color: #788178;
   font-size: 13px;
 }
 
-/* MOBILE */
+.footer-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid #e3ded3;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-edit-btn {
+  border: none;
+  background: transparent;
+  color: #55705a;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.footer-edit-btn:hover {
+  color: #304b36;
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(25, 35, 28, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  overflow-y: auto;
+  backdrop-filter: blur(5px);
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 50px);
+  overflow-y: auto;
+  position: relative;
+  background: #fffdf8;
+  border: 1px solid #e2ddd1;
+  border-radius: 25px;
+  padding: 45px;
+  box-shadow: 0 30px 90px rgba(25, 35, 28, 0.2);
+  animation: modalAppear 0.2s ease-out;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #ddd8cd;
+  background: #f7f4ec;
+  color: #536457;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: #e9e5da;
+}
+
+.modal-card h2 {
+  font-family: Georgia, serif;
+  font-size: 40px;
+  line-height: 1.05;
+  font-weight: 400;
+  color: #293b2e;
+  margin: 12px 45px 15px 0;
+}
+
+.modal-card > div > p {
+  color: #727b74;
+  line-height: 1.6;
+}
+
+.modal-form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.modal-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #405743;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.modal-form input {
+  width: 100%;
+  border: 1px solid #d5d9d0;
+  background: #faf9f4;
+  color: #293b2e;
+  border-radius: 12px;
+  padding: 13px 14px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.modal-form input:focus {
+  border-color: #6f8d73;
+  box-shadow: 0 0 0 3px rgba(79, 114, 87, 0.1);
+}
+
+.modal-form input::placeholder {
+  color: #9aa19b;
+}
+
+.modal-submit {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.modal-product-image {
+  height: 220px;
+  border-radius: 18px;
+  background: #e4eadf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+  margin-bottom: 25px;
+}
+
+.modal-price {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  color: #334c38;
+  margin: 25px 0;
+}
+
+.modal-price small {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  color: #788178;
+  margin-left: 5px;
+}
+
+.modal-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  color: #647067;
+  line-height: 2;
+}
+
+.video-placeholder {
+  height: 280px;
+  margin: 25px 0;
+  border-radius: 18px;
+  background: #263a2b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.video-play {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: white;
+  color: #334c38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  padding-left: 4px;
+  margin-bottom: 20px;
+}
+
+.video-placeholder p {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 300px;
+}
+
+/* =========================================================
+   EDITOR
+   ========================================================= */
+
+.editor-app {
+  min-height: 100vh;
+  background: #f7f4ec;
+}
+
+.back-to-page-btn {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 100;
+  border: none;
+  border-radius: 30px;
+  background: #4f7257;
+  color: white;
+  padding: 13px 20px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(50, 65, 50, 0.18);
+}
+
+.back-to-page-btn:hover {
+  background: #3f6047;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 800px) {
 
   .navbar {
     padding: 15px 5%;
     height: auto;
+    min-height: 72px;
   }
 
-  nav {
+  .main-nav {
     display: none;
   }
 
-  .account-btn {
-    padding: 8px 14px;
+  .edit-page-btn {
+    padding: 9px 13px;
+  }
+
+  .edit-page-btn span:last-child {
+    display: none;
   }
 
   .hero-section {
     grid-template-columns: 1fr;
     padding: 60px 6%;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(45px, 14vw, 68px);
   }
 
   .hero-art {
@@ -561,6 +934,21 @@ footer {
   .plant-circle {
     width: 300px;
     height: 300px;
+    font-size: 100px;
+  }
+
+  .floating-card {
+    padding: 12px 15px;
+  }
+
+  .card-one {
+    top: 55px;
+    left: 0;
+  }
+
+  .card-two {
+    bottom: 55px;
+    right: 0;
   }
 
   .promo-section {
@@ -582,6 +970,11 @@ footer {
     font-size: 40px;
   }
 
+  .section-heading > a {
+    display: inline-block;
+    margin-top: 15px;
+  }
+
   .product-grid {
     grid-template-columns: 1fr;
   }
@@ -592,6 +985,10 @@ footer {
     gap: 40px;
   }
 
+  .workshop-image {
+    height: 330px;
+  }
+
   .subscription-section {
     padding: 80px 5%;
   }
@@ -600,9 +997,154 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  footer {
+  .subscription-preview,
+  .subscription-details {
+    padding: 35px;
+  }
+
+  .subscription-preview {
+    min-height: 360px;
+  }
+
+  .footer-main {
     flex-direction: column;
-    gap: 20px;
     align-items: flex-start;
   }
+
+  .footer-contact {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal-overlay {
+    padding: 15px;
+  }
+
+  .modal-card {
+    padding: 32px 22px;
+    border-radius: 20px;
+    max-height: calc(100vh - 30px);
+  }
+
+  .modal-card h2 {
+    font-size: 32px;
+  }
+
+  .modal-product-image {
+    height: 180px;
+  }
+
+  .video-placeholder {
+    height: 220px;
+  }
+
+  .back-to-page-btn {
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 12px 4%;
+  }
+
+  .brand strong {
+    font-size: 17px;
+  }
+
+  .brand div span {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .brand-icon {
+    font-size: 25px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .promo-section {
+    padding: 28px;
+  }
+
+  .promo-section h2 {
+    font-size: 27px;
+  }
+
+  .plant-circle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .floating-card {
+    transform: scale(0.85);
+  }
+
+  .card-one {
+    left: -15px;
+  }
+
+  .card-two {
+    right: -15px;
+  }
+
+  .product-image {
+    height: 230px;
+  }
+
+  .modal-card {
+    padding: 30px 18px;
+  }
+
+  .modal-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal-card h2 {
+    font-size: 29px;
+  }
+}
+/* =========================================================
+   BOTÓN ADMIN
+   ========================================================= */
+
+.admin-page-btn {
+  border: 1px solid #cfc9ba;
+  background: transparent;
+  color: #334c38;
+
+  padding: 9px 14px;
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-page-btn:hover {
+  background: #334c38;
+  color: #fffdf8;
+  border-color: #334c38;
 }

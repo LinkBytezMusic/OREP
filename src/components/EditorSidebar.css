@@ -1,0 +1,413 @@
+
+/* =========================================================
+   EDITOR SIDEBAR
+========================================================= */
+
+.editor-sidebar {
+  width: 250px;
+  min-width: 250px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px 15px;
+
+  box-sizing: border-box;
+
+  background: #1f2c21;
+  color: #ffffff;
+
+  border-right: 1px solid #18221a;
+
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 0 9px;
+}
+
+.sidebar-logo {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #344937;
+
+  font-size: 20px;
+}
+
+.sidebar-brand strong {
+  display: block;
+
+  font-size: 15px;
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  color: #ffffff;
+}
+
+.sidebar-brand span {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  color: #aeb9aa;
+
+  letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.sidebar-divider {
+  height: 1px;
+
+  margin: 22px 7px;
+
+  background: rgba(255, 255, 255, 0.09);
+}
+
+
+/* =========================================================
+   ARTIST PROFILE
+========================================================= */
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease;
+}
+
+.sidebar-profile:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.profile-avatar {
+  width: 39px;
+  height: 39px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #dfe8da;
+
+  font-size: 18px;
+}
+
+.profile-info {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.profile-info strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-info span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #99a697;
+
+  font-size: 10px;
+}
+
+.profile-arrow {
+  color: #7f8c7c;
+
+  font-size: 20px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.sidebar-title {
+  margin: 0 10px 10px;
+
+  color: #718070;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.sidebar-item {
+  width: 100%;
+
+  min-height: 45px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 11px;
+
+  box-sizing: border-box;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #aeb8ab;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.055);
+
+  color: #ffffff;
+}
+
+.sidebar-item:active {
+  transform: scale(0.985);
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION ITEM
+========================================================= */
+
+.sidebar-item.active {
+  background: #344837;
+
+  color: #ffffff;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.sidebar-item.active .sidebar-icon {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.sidebar-icon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 7px;
+
+  font-size: 15px;
+
+  transition:
+    background 0.2s ease;
+}
+
+
+/* =========================================================
+   BOTTOM MENU
+========================================================= */
+
+.sidebar-bottom {
+  margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.sidebar-bottom .sidebar-item {
+  min-height: 42px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .editor-sidebar {
+    width: 100%;
+    min-width: 100%;
+
+    height: auto;
+    min-height: auto;
+
+    position: relative;
+
+    padding: 12px 15px;
+
+    border-right: 0;
+    border-bottom: 1px solid #18221a;
+  }
+
+  .sidebar-brand {
+    display: none;
+  }
+
+  .sidebar-divider {
+    display: none;
+  }
+
+  .sidebar-profile {
+    display: none;
+  }
+
+  .sidebar-title {
+    display: none;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+
+    overflow-x: auto;
+
+    padding-bottom: 2px;
+
+    gap: 5px;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .sidebar-item {
+    width: auto;
+
+    min-width: max-content;
+
+    min-height: 40px;
+
+    padding: 0 12px;
+  }
+
+  .sidebar-icon {
+    width: 25px;
+    height: 25px;
+
+    font-size: 13px;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .editor-sidebar {
+    padding: 8px 10px;
+  }
+
+  .sidebar-nav {
+    gap: 3px;
+  }
+
+  .sidebar-item {
+    min-height: 37px;
+
+    padding: 0 9px;
+
+    font-size: 11px;
+
+    gap: 6px;
+  }
+
+  .sidebar-icon {
+    width: 23px;
+    height: 23px;
+
+    font-size: 12px;
+  }
+}
+
